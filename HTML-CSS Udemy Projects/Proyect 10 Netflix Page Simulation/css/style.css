@@ -1,0 +1,289 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: "liga";
+}
+
+body {
+  background: #000;
+}
+
+header {
+  position: absolute; /*En este caso se posicionará en absolute porque el header es un contenedor principal y tomará referencias a body de acuerdo a ello se va a poder trasladar*/
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 100px;
+  z-index: 100;
+}
+header .logo img {
+  max-width: 150px;
+}
+
+.navigation {
+  display: flex;
+}
+.navigation li {
+  list-style: none;
+  margin: 0 10px;
+}
+.navigation li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.navigation li:hover a {
+  color: #de0611;
+}
+
+.search {
+  position: relative;
+  width: 300px;
+  height: 40px;
+}
+.search input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  outline: none; /*Esto es para que cuando se escriba algo no aparezca una franja roja en errores ortográficos*/
+  border-radius: 8px;
+  padding: 0 10px 0 35px;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px); /*Hace un efecto como de desenfoque*/
+}
+.search input::-moz-placeholder {
+  color: #fff;
+}
+.search input::placeholder {
+  color: #fff;
+}
+.search .btnbuscar {
+  color: #fff;
+  border: none;
+  position: relative; /*Desbloquea las propiedades de posicion*/
+  background: transparent;
+  left: 2%;
+  top: 20%;
+}
+
+.banner {
+  position: relative;
+  width: 100%;
+  min-height: 100vh; /*Esto para que invada el 100% de altura de la pantalla*/
+  padding: 0 100px;
+  display: flex;
+  justify-content: flex-start; /*En flex-start porque el banner esta al inicio*/
+  align-items: center;
+}
+.banner .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover; /*Indica como el contenido de un elemento reemplazado por una imagen o vídeo deberia redimensionarse para ajustarse al contenedor*/
+}
+.banner .sombraImg {
+  position: absolute;
+  background: linear-gradient(45deg, black 30%, transparent);
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 550px;
+}
+
+.movieTittle {
+  max-width: 100%;
+}
+
+.banner .content h4 {
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+}
+.banner .content h4 span {
+  padding: 0 10px;
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+}
+.banner .content h4 span:first-child {
+  padding-left: 0;
+}
+.banner .content h4 span:last-child {
+  border-right: none;
+}
+.banner .content h4 span i {
+  background: #de0611;
+  color: #fff;
+  padding: 0 8px;
+  display: inline-block;
+  border-radius: 4px;
+  font-style: normal; /*Debido a que la etiqueta i estila la letra de forma italica, le quitaremos ese estilo cursivo especificando que el estilo de la letra sea normal.*/
+}
+.banner .content p {
+  font-size: 1em;
+  font-weight: 300;
+  line-height: 1.5em; /*Especifica el espacio entre las líneas de las letras*/
+  color: #fff;
+  margin: 10px 0 20px;
+}
+.banner .content .buttons {
+  position: relative; /*Al ser padre de dos etiquetas a, se le dará la posición relativa para que los elementos se muevan en torno a esta clase*/
+}
+.banner .content .buttons a {
+  position: relative;
+  display: inline-block;
+  margin-right: 10px;
+  background: #de0611;
+  color: #fff;
+  padding: 6px 20px;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.banner .content .buttons a:nth-child(2) { /*Con nth-child accedemos a uno de los hijos del padre a, en este caso el enlace que dice "My list" porque es el segundo hijo declarado o que se encuentra*/
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+.banner .content .buttons a:hover:nth-child(2) {
+  background: #de0611;
+}
+
+.play {
+  position: absolute;
+  bottom: 50px;
+  left: 100px;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+.play img {
+  margin-right: 10px;
+  max-width: 50px;
+}
+
+.trailer {
+  position: fixed; /*Es cuando se centra en toda la pantalla y se sale del flujo de diseño*/
+  top: 50%; /*Desplaza de top la mitad de la pantalla*/
+  left: 50%; /*Desplaza de la izquierda la mitad de la pantalla*/
+  transform: translate(-50%, -50%); /*Con esto existirá una animación*/
+  z-index: 10000; /*El elemento que tenga el mayor z-index es el que se va a mostrar antes que los demás elementos*/
+  width: 100%; /*Ocupará el 100% del ancho de la pantalla*/
+  height: 100%; /*Ocupará el cien por ciento de la altura de la pantalla*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  visibility: hidden;
+  opacity: 0;
+}
+.trailer.active {
+  visibility: visible;
+  opacity: 1;
+}
+.trailer video {
+  max-width: 900px;
+  outline: none;
+  border-radius: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  cursor: pointer;
+  filter: invert(1);
+  max-width: 32px;
+}
+
+@media (max-width: 991px) {
+  header {
+    padding: 20px 50px;
+    flex-direction: column;
+  }
+  .navigation {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 10px 0;
+  }
+  .banner {
+    padding: 100px 50px;
+  }
+  .banner .play {
+    left: 50px;
+    font-size: 1em;
+  }
+  .play img {
+    margin-right: 10px;
+    max-width: 40px;
+  }
+  .trailer video {
+    max-width: 90%;
+  }
+}
+@media (max-width: 600px) {
+  header {
+    padding: 20px;
+  }
+  .search {
+    position: relative;
+    width: calc(100% - 20px);
+    height: 40px;
+  }
+  .banner {
+    padding: 220px 20px 120px;
+  }
+  .banner .play {
+    left: 20px;
+    font-size: 1em;
+    bottom: 0px;
+  }
+}/*# sourceMappingURL=style.css.map */

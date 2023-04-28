@@ -1,0 +1,51 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /*Altura minima del contenedor body*/
+  background: #1b1b1b; /*Color de fondo*/
+}
+body .container {
+  position: relative; /*Se deja la posicion relativa porque su padre inmediato es body, un contenedor generico*/
+  width: 100%;
+  height: 100vh; /*Abarcará todo el alto de la pantalla*/
+  overflow: hidden; /*Cuando exista desbordamiento de elementos los va a desaparecer*/
+}
+body .container .bubbles {
+  position: relative;
+  display: flex;
+}
+body .container .bubbles span {
+  position: relative;
+  min-width: 30px;
+  height: 30px;
+  background: #fff;
+  box-shadow: 0 0 0 10px rgba(79, 195, 220, 0.2666666667), 0 0 50px #705AFE, 0 0 100px #4fc4dc;
+  /*En la box shadow el 4to valor se le da a la extensión de la sombre/spread radius, es el que el radio de la sombra se coloca de forma externa al elemento*/
+  margin: 0 4px;
+  border-radius: 50%;
+  animation: animate 15s linear infinite;
+  animation-duration: calc(75s / var(--i));
+}
+body .container .bubbles span:nth-child(even) { /*Esto selecciona a los hijos pares de un elemento*/
+  background: #FFC107;
+  box-shadow: 0 0 0 10px #F0DB4F, 0 0 50px #FF2D75, 0 0 100px #F23B00;
+}
+
+@keyframes animate {
+  /*Para utilizar keyframes se crea el @keyframes con un nombre que es utilizado en la sentencia animation, los keyframes son puntos de trayectoria, comienzan del origen al final*/
+  0% { /*Esta medida indica que es la coordenada en la que empezara la animacion */
+    transform: translateY(100vh) scale(0); /*El transform mueve los elementos en y de arriba hacia abajo*/
+  }
+  100% {
+    transform: translateY(-10vh) scale(2.5);
+  }
+}/*# sourceMappingURL=styles.css.map */
